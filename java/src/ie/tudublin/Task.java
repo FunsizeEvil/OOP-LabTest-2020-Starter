@@ -1,3 +1,9 @@
+// Labtest 22/04/2020
+// Daniel Foley
+// c17335606
+// compiled using shell scripts
+// https://github.com/FunsizeEvil/OOP-LabTest-2020-Starter
+
 package ie.tudublin;
 
 import processing.data.TableRow;
@@ -73,7 +79,7 @@ public class Task
     @Override
     public String toString()
     {
-        return "Task " + taskName + " Starts at " + startTime + " and ends at " + endTime + ".";
+        return "Task " + taskName + " Starts at day " + startTime + " and ends at day " + endTime + ".";
     }   
 
 }

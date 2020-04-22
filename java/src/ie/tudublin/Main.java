@@ -1,3 +1,9 @@
+// Labtest 22/04/2020
+// Daniel Foley
+// c17335606
+// compiled using shell scripts
+// https://github.com/FunsizeEvil/OOP-LabTest-2020-Starter
+
 package ie.tudublin;
 
 public class Main
