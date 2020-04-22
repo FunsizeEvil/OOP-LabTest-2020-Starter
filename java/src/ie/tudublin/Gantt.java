@@ -58,6 +58,7 @@ public class Gantt extends PApplet
 	{
 		//create a border to work off
 		float border = width * 0.05f;
+		float textBox = width * 0.33f;
 		int numOfDays = 30;
 
 
@@ -65,8 +66,8 @@ public class Gantt extends PApplet
 		stroke(0, 0 ,255);
 		textAlign(CENTER, CENTER);
 		for(int i = 0; i < numOfDays; i++){
-			// Draws the grid 
-			float x = map(i, 0, 30, border, width - border);
+			// Draws the horizontal grid 
+			float x = map(i, 0, 30, textBox, width - border);
 			line( x, border, x, height - border);
 			fill(0);
         	textSize(10);
@@ -85,7 +86,6 @@ public class Gantt extends PApplet
 	
 	public void draw()
 	{			
-		background(255);
-		stroke(0);
+		//background(255);
 	}
 }
