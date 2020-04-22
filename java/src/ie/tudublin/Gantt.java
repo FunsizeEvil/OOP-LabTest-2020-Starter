@@ -38,6 +38,6 @@ public class Gantt extends PApplet
 	
 	public void draw()
 	{			
-		background(0);
+		background(255);
 	}
 }
