@@ -60,20 +60,22 @@ public class Gantt extends PApplet
 		float border = width * 0.05f;
 		float textBox = width * 0.20f;
 		float textBoxHeight = height * 0.5f;
-		int numOfDays = 30;
+		int numOfDays = 31;
+		float colorGap = 255 / (float) tasks.size();
 
 
 		pushMatrix();
+		background(155);
 		stroke(0, 0 ,255);
 		textAlign(CENTER, CENTER);
 		// Draws the horizontal grid 
-		for(int i = 0; i < numOfDays; i++){
-			float x = map(i, 0, 30, textBox, width - border);
+		for(int i = 1; i < numOfDays; i++){
+			float x = map(i, 0, numOfDays, textBox, width - border);
 			line( x, border, x, height - border);
-			fill(0);
+			fill(255);
         	textSize(10);
-        	text(i + 1, x, border - 10);
-
+        	text(i , x, border - 10);
+			
 		}
 		popMatrix();
 
@@ -81,12 +83,27 @@ public class Gantt extends PApplet
 		//
 		for(int i = 0; i < tasks.size() ; i ++){
 			float y = map(i , 0, tasks.size(), textBoxHeight / 3, textBoxHeight * 1.5f );
+			fill(255);
 			textSize(15);
 			text(tasks.get(i).getTaskName(), border + 50, y);
+
+			// draw the boxes for days
+			//
+			for(int j = 0; j < numOfDays; j++){
+				if (tasks.get(i).getStartTime() == j )
+				{
+					//first set HSB colours for boxes
+					//
+					pushMatrix();
+					colorMode(HSB);
+					fill(i * colorGap,255, 255);
+					float x = map(j, 0, numOfDays, textBox, width - border);
+					rect(x , y  , map(j, tasks.get(i).getEndTime(), tasks.get(i).getStartTime(), textBox, width - border), 20);
+					popMatrix();
+
+				}
+			}
 		}
-
-
-
 	}
 	
 	public void setup() 
